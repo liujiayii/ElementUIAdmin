@@ -1,30 +1,55 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <el-button @click="startHacking">Start</el-button>
-    </div>
+    <router-view name="blank"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  methods: {
-    startHacking () {
-      this.$notify({
-        title: 'It works!',
-        type: 'success',
-        message: 'We\'ve laid the ground work for you. It\'s time for you to build something epic!',
-        duration: 5000
-      })
-    }
+  export default {
+    name: 'app',
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: Helvetica, sans-serif;
-  text-align: center;
+<style lang="less">
+* {
+  padding: 0;
+  margin: 0;
+  outline:none;
+  box-sizing: border-box;
+}
+#app{
+  background-color: #222d32;
+}
+a {
+  color: #3c8dbc;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar
+{
+  width: 4px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #3e8dbb;
+}
+.el-menu .fa{
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 24px;
+    text-align: center;
+}
+.el-menu .fa:not(.is-children) {
+    font-size: 14px;
 }
 </style>

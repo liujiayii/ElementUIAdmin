@@ -8,8 +8,12 @@
     "build": "rimraf dist && webpack -p --progress --hide-modules"
   },
   "dependencies": {
+    "axios": "^0.17.0",
     "element-ui": "^2.0.0",
-    "vue": "^2.5.2"
+    "nprogress": "^0.2.0",
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "engines": {
     "node": ">=6"
@@ -22,6 +26,8 @@
     "css-loader": "^0.27.0",
     "file-loader": "^0.10.1",
     "html-webpack-plugin": "^2.24.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
     "postcss-loader": "^1.3.3",
     "rimraf": "^2.5.4",
     "style-loader": "^0.13.2",

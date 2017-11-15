@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const url = require('url')
 const publicPath = ''
-
 module.exports = (options = {}) => ({
   entry: {
     vendor: './src/vendor',
@@ -23,7 +22,7 @@ module.exports = (options = {}) => ({
       {
         test: /\.js$/,
         use: ['babel-loader'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -37,7 +36,17 @@ module.exports = (options = {}) => ({
             limit: 10000
           }
         }]
-      }
+      },
+      {
+        test: /\.less$/,
+        use: [{
+            loader: "style-loader" // creates style nodes from JS strings
+        }, {
+            loader: "css-loader" // translates CSS into CommonJS
+        }, {
+            loader: "less-loader" // compiles Less to CSS
+        }]
+      },
     ]
   },
   plugins: [
@@ -46,7 +55,10 @@ module.exports = (options = {}) => ({
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    })
+    }),
+    new webpack.DefinePlugin({
+      __DEV__ : options.dev ? true : false
+    }),
   ],
   resolve: {
     alias: {
