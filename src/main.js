@@ -20,13 +20,13 @@ Vue.use(ElementUI)
 
 router.beforeEach((to, from, next) => {
   window.document.title = to.meta.title?to.meta.title+'-'+Config.siteName:Config.siteName;
-    NProgress.start()
-  // if (!sessionStorage.getItem(Config.tokenKey) && to.path != '/login') {
-  //   next({path: '/login'});
-  //   NProgress.done();
-  // } else {
+    NProgress.start();
+  if (!sessionStorage.getItem(Config.tokenKey) && to.path != '/login') {
+    next({path: '/login'});
+    NProgress.done();
+  } else {
     next();
-  //  }
+  }
 });
 router.afterEach(transition => {
     NProgress.done()

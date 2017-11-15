@@ -47,16 +47,18 @@
       },
     methods: {
         login(){
-            this.loginLoading = true;
+            let APP = this;
+            APP.loginLoading = true;
             setTimeout(()=>{
-                this.$notify({
+                sessionStorage.setItem(APP.$Config.tokenKey,'123456789');
+                APP.$notify({
                     title: '登录成功',
                     message: '很高兴你使用Eui！Admin',
                     type: 'success'
                 });
-                this.loginLoading = false;
-                this.$router.push({path: '/'});
-            },500);
+                APP.loginLoading = false;
+                APP.$router.push({path: '/'});
+            },1000);
         }
     }
   }
