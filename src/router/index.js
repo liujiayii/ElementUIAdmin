@@ -23,15 +23,15 @@ export default new Router({
           },
           component: resolve => require(['~/views/home/Index.vue'], resolve),
         },
-          {
-              path: '/font_awesome',
-              name: 'font_awesome',
-              meta: {
-                  title: 'FontAwesome 4.7',
-                  keepAlive: false
-              },
-              component: resolve => require(['~/views/icon/FontAwesome.vue'], resolve),
-          }
+        {
+          path: '/font_awesome',
+          name: 'font_awesome',
+          meta: {
+            title: 'FontAwesome 4.7',
+            keepAlive: false
+          },
+          component: resolve => require(['~/views/icon/FontAwesome.vue'], resolve),
+        }
       ]
     },
     {
