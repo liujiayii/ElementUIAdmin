@@ -3,7 +3,7 @@
 > 一个干净优雅的Element UI Admin模板
 
 *一个大型单页应用离不开合理的项目结构和一些简单的封装*
-https://github.com/xusenlin/element-starter
+
 
 ## Start
 
