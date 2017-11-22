@@ -27,6 +27,7 @@ function buildServerApiRequest(params, url, type, callback) {
       if(__DEV__)
         console.log(e);
       //这里可以根据后台数据进一步做一些过滤或者报错之类的
+      //比如没有权限操作，弹出提示清除token并跳转登录页面
       callback(r);
     }).catch(e => {
       if(__DEV__)
