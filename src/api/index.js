@@ -1,6 +1,6 @@
-import user from './allApi/user';
-import file from './allApi/file';
-import permissions from './allApi/permissions'
+import user from './user';
+import file from './file';
+import permissions from './permissions'
 
 let allApi = Object.assign(
   user,

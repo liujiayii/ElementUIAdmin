@@ -14,7 +14,7 @@
     props: {
       api: String,
       params: Object,
-      init: Boolean,
+      refurbish: Boolean,
     },
     data() {
       return {
@@ -43,7 +43,7 @@
     },
     watch: {
 
-      'init': {
+      'refurbish': {
         handler: function () {
           this.paginate();
         },

@@ -17,11 +17,10 @@
 </script>
 <style lang="less">
   .footer {
-    height: 50px;
     width: 100%;
     font-size: 14px;
     background: #fff;
-    padding: 15px;
+    padding: 12px;
     color: #444;
     border-top: 1px solid #d2d6de;
     .version {

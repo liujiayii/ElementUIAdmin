@@ -161,7 +161,7 @@
     .main-container {
       margin-top: 50px;
       padding: 10px;
-      min-height: calc(~'100vh - 100px');
+      min-height: calc(~'100vh - 94px');
     }
   }
 
@@ -183,7 +183,7 @@
       color: #fff;
       background-color: #367fa9;
       -webkit-transition: width 0.35s;
-      transition: width 0.35s;
+      transition: width 0.3s ease-in-out;
     }
     .right {
       position: absolute;
