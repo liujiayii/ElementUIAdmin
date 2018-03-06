@@ -37,7 +37,7 @@
             router
             background-color="#222d32"
             text-color="#fff"
-            default-active="1-4-1" class="menu" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+            :default-active="$route.path" class="menu" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
           <template v-for="(menu_v,menu_k) in menu">
             <el-submenu v-if="menu_v.children" :index="menu_k">
               <template slot="title">
@@ -58,6 +58,7 @@
         </el-menu>
       </div>
       <div class="app-body">
+      <NavBar></NavBar>
         <div class="main-container">
           <router-view></router-view>
         </div>
@@ -69,6 +70,7 @@
 
 <script>
   import EuiFooter from '~/views/layout/Footer.vue';
+  import NavBar from './NavBar.vue'
   import Menu from '~/menu/index';
 
   export default {
@@ -96,10 +98,10 @@
         this.$router.push({path: '/login'});
       },
       handleOpen(key, keyPath) {
-        console.log(key, keyPath);
+        //console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
-        console.log(key, keyPath);
+        //关闭菜单
       }
     },
     mounted: function () {
@@ -112,7 +114,7 @@
       }
     },
     components: {
-      EuiFooter
+      EuiFooter,NavBar
     },
   }
 </script>
@@ -155,13 +157,13 @@
     }
     .app-body {
       margin-left: 230px;
-      -webkit-transition: margin-left 0.35s;
-      transition: margin-left 0.35s;
+      -webkit-transition: margin-left 0.3s ease-in-out;
+      transition: margin-left 0.3s ease-in-out;
     }
     .main-container {
-      margin-top: 50px;
+      //margin-top: 50px;
       padding: 10px;
-      min-height: calc(~'100vh - 94px');
+      min-height: calc(~'100vh - 135px');
     }
   }
 

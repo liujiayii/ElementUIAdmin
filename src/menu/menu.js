@@ -29,6 +29,35 @@ icon.font_awesome = {
 };
 
 /**
+ * 内容管理
+ * @type {{name: string, icon: string, children: {}}}
+ */
+menu.content_manage = {
+  name: '内容管理',
+  icon: 'fa fa-file-text-o',
+  children: {}
+};
+
+let ContentManage = menu.content_manage.children;
+
+ContentManage.post = {
+  name: '文章管理',
+  path: '/post_manage',
+  permission: 'PostManageView',
+};
+ContentManage.category = {
+  name: '分类管理',
+  path: '/category_manage',
+  permission: 'CategoryManageView',
+};
+ContentManage.message = {
+  name: '留言管理',
+  path: '/message_manage',
+  permission: 'MessageManageView',
+};
+
+
+/**
  * 用户管理
  * @type {{name: string, icon: string, children: {}}}
  */
@@ -48,34 +77,6 @@ UserManage.user_admin = {
   name: '管理用户组',
   path: '/user_admin',
   permission: 'UserAdminView',
-};
-
-/**
- * 内容管理
- * @type {{name: string, icon: string, children: {}}}
- */
-menu.content_manage = {
-  name: '内容管理',
-  icon: 'fa fa-file-text-o',
-  children: {}
-};
-
-let ContentManage = menu.content_manage.children;
-
-ContentManage.category = {
-  name: '分类管理',
-  path: '/category_manage',
-  permission: 'CategoryManageView',
-};
-ContentManage.post = {
-  name: '文章管理',
-  path: '/post_manage',
-  permission: 'PostManageView',
-};
-ContentManage.message = {
-  name: '留言管理',
-  path: '/message_manage',
-  permission: 'MessageManageView',
 };
 
 

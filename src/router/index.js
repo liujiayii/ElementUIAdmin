@@ -11,7 +11,7 @@ export default new Router({
       component: resolve => require(['~/views/layout/App.vue'], resolve),
       meta: {
         title: '首页',
-        keepAlive: false
+        keepAlive: false,
       },
       children: [
         {
@@ -31,6 +31,15 @@ export default new Router({
             keepAlive: false
           },
           component: resolve => require(['~/views/icon/FontAwesome.vue'], resolve),
+        },
+        {
+          path: '/post_manage',
+          name: 'post_manage',
+          meta: {
+            title: '文章管理',
+            keepAlive: false
+          },
+          component: resolve => require(['~/views/contentManage/Index.vue'], resolve),
         }
       ]
     },

@@ -30,7 +30,7 @@
 
 
       <el-button type="primary" :loading="true">加载中</el-button>
-      <br><br><br><br>
+      <br><br><br><br> <br><br><br><br>
 
       <el-button-group>
         <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
@@ -41,6 +41,14 @@
         <el-button type="primary" icon="el-icon-share"></el-button>
         <el-button type="primary" icon="el-icon-delete"></el-button>
       </el-button-group>
+      <div class="el-pagination">
+        <el-pagination
+                background
+                layout="prev, pager, next"
+                :total="1000">
+        </el-pagination>
+      </div>
+
     </div>
     <br><br>
   </div>
