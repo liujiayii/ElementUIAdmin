@@ -77,20 +77,17 @@
             &:hover {
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
                 //border-color: #3d8dbc;
-                .point {
-                    background: #3d8dbc;
-                }
             }
             .point {
-                display: inline-block;
+                display: none;
                 width: 8px;
                 height: 8px;
                 border-radius: 50%;
+                margin: auto 0;
                 position: relative;
-                background: #cecece;
+                background: #fff;
             }
             .el-icon-close {
-                padding: 2px;
                 margin: 0 4px;
                 border-radius: 50%;
                 &:hover {
@@ -102,9 +99,9 @@
         .active {
             background: #3d8dbc;
             color: #fff;
-            /*.point{*/
-            /*background: #3d8dbc;*/
-            /*}*/
+            .point{
+                display: inline-block;
+            }
         }
         .scroll-container {
             flex: 1;
