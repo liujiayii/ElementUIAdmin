@@ -33,6 +33,15 @@ export default new Router({
           component: resolve => require(['~/views/icon/FontAwesome.vue'], resolve),
         },
         {
+          path: '/element_icon',
+          name: 'element_icon',
+          meta: {
+              title: 'Element Icon',
+              keepAlive: false
+          },
+          component: resolve => require(['~/views/icon/ElementIcon.vue'], resolve),
+        },
+        {
           path: '/post_manage',
           name: 'post_manage',
           meta: {

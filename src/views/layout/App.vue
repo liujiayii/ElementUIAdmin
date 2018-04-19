@@ -119,7 +119,6 @@
   }
 </script>
 <style lang="less">
-
   .sidebar-hidden {
     .header {
       .logo {
@@ -222,4 +221,7 @@
   .menu {
     border-right: none;
   }
+    .el-menu--vertical{
+        min-width: 190px;
+    }
 </style>

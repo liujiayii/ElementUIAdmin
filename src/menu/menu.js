@@ -25,7 +25,11 @@ let icon = menu.font_icon.children;
 icon.font_awesome = {
   name: 'FontAwesome 4.7',
   path: '/font_awesome',
-  permission: '',
+
+};
+icon.element_icon = {
+  name: 'ElementIcon',
+  path: '/element_icon',
 };
 
 /**
@@ -43,18 +47,15 @@ let ContentManage = menu.content_manage.children;
 ContentManage.post = {
   name: '文章管理',
   path: '/post_manage',
-  permission: 'PostManageView',
 };
-ContentManage.category = {
-  name: '分类管理',
-  path: '/category_manage',
-  permission: 'CategoryManageView',
-};
-ContentManage.message = {
-  name: '留言管理',
-  path: '/message_manage',
-  permission: 'MessageManageView',
-};
+// ContentManage.category = {
+//   name: '分类管理',
+//   path: '/category_manage',
+// };
+// ContentManage.message = {
+//   name: '留言管理',
+//   path: '/message_manage',
+// };
 
 
 /**
@@ -68,16 +69,14 @@ menu.user_manage = {
 };
 let UserManage = menu.user_manage.children;
 
-UserManage.user = {
-  name: '普通用户组',
-  path: '/user',
-  permission: 'UserView',
-};
-UserManage.user_admin = {
-  name: '管理用户组',
-  path: '/user_admin',
-  permission: 'UserAdminView',
-};
+// UserManage.user = {
+//   name: '普通用户组',
+//   path: '/user',
+// };
+// UserManage.user_admin = {
+//   name: '管理用户组',
+//   path: '/user_admin',
+// };
 
 
 export default menu;
