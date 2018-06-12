@@ -19,6 +19,7 @@
           v-model="password"
           type="password"
           style="margin-bottom: 18px"
+          @keyup.native.enter="login"
       >
       </el-input>
 

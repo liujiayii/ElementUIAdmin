@@ -79,7 +79,7 @@
       <div class="app-body">
         <NavBar v-if="switchTabBar"></NavBar>
         <div v-else style="margin-top: 50px;"></div>
-        <div class="main-container">
+        <div id="mainContainer" class="main-container">
           <router-view></router-view>
         </div>
         <EuiFooter></EuiFooter>
@@ -104,7 +104,8 @@
     },
     methods: {
       saveSwitchTabBarVal(v) {
-
+        let containerDom = document.getElementById('mainContainer');
+        v ? containerDom.style.minHeight = 'calc(100vh - 135px)' : containerDom.style.minHeight = 'calc(100vh - 97px)';
         v ? localStorage.setItem('switchTabBar', v) : localStorage.removeItem('switchTabBar');
       },
       sidebarToggle(e) {
@@ -190,7 +191,7 @@
     .main-container {
       //margin-top: 50px;
       padding: 10px;
-      min-height: calc(~'100vh - 135px');
+      min-height: calc(~'100vh - 97px');
     }
   }
 
