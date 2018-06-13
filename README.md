@@ -35,6 +35,7 @@ npm run build
 这个是基于Element UI的后台单页应用模板。点击连接预览http://xusenlin.com/works/eui/
 
 ![](http://xusenlin.com/usr/uploads/2017/11/1994564783.png)
+![](http://xusenlin.com/usr/uploads/2018/06/3940752822.png)
 ![](http://xusenlin.com/usr/uploads/2018/06/1194152729.png)
 ![](http://xusenlin.com/usr/uploads/2018/03/3799135184.png)
 ![](http://xusenlin.com/usr/uploads/2018/06/3444387043.jpg)
