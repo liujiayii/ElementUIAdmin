@@ -69,14 +69,14 @@ menu.user_manage = {
 };
 let UserManage = menu.user_manage.children;
 
-// UserManage.user = {
-//   name: '普通用户组',
-//   path: '/user',
-// };
-// UserManage.user_admin = {
-//   name: '管理用户组',
-//   path: '/user_admin',
-// };
+UserManage.user = {
+  name: '用户列表',
+  path: '/user_manage',
+};
+UserManage.user_admin = {
+  name: '管理员列表',
+  path: '/',
+};
 
 
 export default menu;

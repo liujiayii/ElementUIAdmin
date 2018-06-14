@@ -11,4 +11,9 @@ export default {
       AR:'AR资讯',
       HEALTH:'健康资讯',
   },
+  sex:{
+      male:'男',
+      female:'女',
+      unknown:'未知'
+  }
 }

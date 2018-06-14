@@ -49,6 +49,15 @@ export default new Router({
             keepAlive: false
           },
           component: resolve => require(['~/views/contentManage/Index.vue'], resolve),
+        },
+        {
+          path: '/user_manage',
+          name: 'user_manage',
+          meta: {
+            title: '用户列表',
+            keepAlive: true
+          },
+          component: resolve => require(['~/views/userManage/Index.vue'], resolve),
         }
       ]
     },

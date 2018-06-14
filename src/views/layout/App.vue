@@ -190,7 +190,7 @@
     }
     .main-container {
       //margin-top: 50px;
-      padding: 10px;
+      padding: 2px;
       min-height: calc(~'100vh - 97px');
     }
   }

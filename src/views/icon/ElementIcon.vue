@@ -32,7 +32,7 @@
 </script>
 <style lang="less">
   .box-card {
-    margin-bottom: 20px;
+    border-radius: 0;
   }
 
   .font-awesome .el-col {
