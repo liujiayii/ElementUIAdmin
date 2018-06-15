@@ -6,8 +6,6 @@
     <div class="scroll-wrapper" ref="scrollWrapper" :style="{left: left + 'px'}">
       <slot></slot>
     </div>
-    <span class="direction" style="left: 0" @click="left -= 76"><i class="el-icon-caret-left" ></i></span>
-    <span class="direction" style="right: 0" @click="left += 76"><i class="el-icon-caret-right" ></i></span>
   </div>
 </template>
 
@@ -69,20 +67,8 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    .direction{
-      cursor: pointer;
-      height: 100%;
-      background: #fff;
-      position: absolute;
-      i{
-        display: block;
-        margin-top: -8px;
-        top: 50%;
-        position: relative;
-      }
-    }
     .scroll-wrapper {
-      padding: 0 20px;
+      padding: 0 4px;
       position: absolute;
       transition: left 0.3s ease-in-out;
     }

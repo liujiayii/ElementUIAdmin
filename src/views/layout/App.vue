@@ -5,29 +5,44 @@
         <span class="big">{{ $Config.siteName }}</span>
         <span class="min">{{ $Config.minSiteMame }}</span>
       </div>
-      <span class="header-btn" @click="sidebarToggle">
+      <span class="header-btn" @click="hiddenSidebar">
         <i class="el-icon-menu"></i>
       </span>
       <div class="right">
-        <el-dropdown trigger="click">
+        <el-dropdown>
           <span class="header-btn">
                <i class="el-icon-setting"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <div style="padding: 10px;text-align: center;width: 420px">
-              <el-switch
-                @change="saveSwitchTabBarVal"
-                v-model="switchTabBar"
-                active-text="开启TabBar"
-                inactive-text="关闭TabBar">
-              </el-switch>
-              <el-alert
-                v-if="switchTabBar"
-                style="margin-top: 10px"
-                title="导航标签超过容器时,可在导航上滚动鼠标来移动标签"
-                type="info"
-                show-icon>
-              </el-alert>
+              <div class="setting-category">
+                <el-switch
+                    @change="saveSwitchTabBarVal"
+                    v-model="switchTabBar"
+                    active-text="开启TabBar"
+                    inactive-text="关闭TabBar">
+                </el-switch>
+                <el-switch
+                    @change="saveFixedTabBar"
+                    v-if="switchTabBar"
+                    v-model="fixedTabBar"
+                    style="margin-top: 10px"
+                    active-text="固定在顶部"
+                    inactive-text="随页面滚动">
+                </el-switch>
+                <el-alert
+                    v-if="switchTabBar"
+                    style="margin-top: 10px"
+                    title="导航标签超过容器时,可在导航上滚动鼠标来移动标签"
+                    type="info"
+                    show-icon>
+                </el-alert>
+              </div>
+
+              <!--<div class="setting-category">-->
+                <!--下个设置块-->
+              <!--</div>-->
+
             </div>
           </el-dropdown-menu>
         </el-dropdown>
@@ -50,36 +65,43 @@
     </div>
     <div class="app">
       <div class="aside">
-        <el-menu
-          router
-          background-color="#222d32"
-          text-color="#fff"
-          :default-active="$route.path" class="menu" @open="handleOpen" @close="handleClose"
-          :collapse="isCollapse">
-          <template v-for="(menu_v,menu_k) in menu">
-            <el-submenu v-if="menu_v.children" :index="menu_k">
-              <template slot="title">
+        <div class="menu">
+          <el-menu
+              router
+              background-color="#222d32"
+              text-color="#fff"
+              :default-active="$route.path" class="menu" @open="handleOpen" @close="handleClose"
+              :collapse="isCollapse">
+            <template v-for="(menu_v,menu_k) in menu">
+              <el-submenu v-if="menu_v.children" :index="menu_k">
+                <template slot="title">
+                  <i :class="menu_v.icon"></i>
+                  <span slot="title">{{ menu_v.name }}</span>
+                </template>
+                <el-menu-item v-for="(menuChildren_v,menuChildren_k) in menu_v.children"
+                              :key="menuChildren_k"
+                              :index="menuChildren_v.path">
+                  <i class="is-children fa fa-circle-o"></i>
+                  <span slot="title">{{ menuChildren_v.name }}</span>
+                </el-menu-item>
+              </el-submenu>
+              <el-menu-item v-else :index="menu_v.path">
                 <i :class="menu_v.icon"></i>
                 <span slot="title">{{ menu_v.name }}</span>
-              </template>
-              <el-menu-item v-for="(menuChildren_v,menuChildren_k) in menu_v.children"
-                            :key="menuChildren_k"
-                            :index="menuChildren_v.path">
-                <i class="is-children fa fa-circle-o"></i>
-                <span slot="title">{{ menuChildren_v.name }}</span>
               </el-menu-item>
-            </el-submenu>
-            <el-menu-item v-else :index="menu_v.path">
-              <i :class="menu_v.icon"></i>
-              <span slot="title">{{ menu_v.name }}</span>
-            </el-menu-item>
-          </template>
-        </el-menu>
+            </template>
+          </el-menu>
+        </div>
+        <div class="sidebar-toggle" @click="sidebarToggle">
+          <div class="icon-left">
+            <i class="el-icon-back"></i>
+          </div>
+        </div>
       </div>
       <div class="app-body">
-        <NavBar v-if="switchTabBar"></NavBar>
+        <NavBar v-if="switchTabBar" :style="fixedTabBar && switchTabBar?'position: fixed;top: 0;':''"></NavBar>
         <div v-else style="margin-top: 50px;"></div>
-        <div id="mainContainer" class="main-container">
+        <div id="mainContainer" :style="fixedTabBar && switchTabBar?'margin-top: 88px;':''" class="main-container">
           <router-view></router-view>
         </div>
         <EuiFooter></EuiFooter>
@@ -96,6 +118,7 @@
   export default {
     data() {
       return {
+        fixedTabBar:false,
         switchTabBar: false,
         siteName: this.$Config.siteName,
         isCollapse: false,
@@ -103,6 +126,9 @@
       };
     },
     methods: {
+      saveFixedTabBar(v){
+        v ? localStorage.setItem('fixedTabBar', v) : localStorage.removeItem('fixedTabBar');
+      },
       saveSwitchTabBarVal(v) {
         let containerDom = document.getElementById('mainContainer');
         v ? containerDom.style.minHeight = 'calc(100vh - 135px)' : containerDom.style.minHeight = 'calc(100vh - 97px)';
@@ -118,6 +144,12 @@
           document.body.classList.add('sidebar-hidden')
           this.isCollapse = true;
         }
+
+
+      },
+      hiddenSidebar(e) {
+        e.preventDefault();
+        document.body.classList.toggle('sidebar-close')
       },
       logout() {
         sessionStorage.removeItem(this.$Config.tokenKey);
@@ -133,6 +165,8 @@
     mounted: function () {
 
       this.switchTabBar = localStorage.getItem('switchTabBar') ? true : false;
+      this.fixedTabBar = localStorage.getItem('fixedTabBar') ? true : false;
+
 
       if (!this.isCollapse) {
 
@@ -148,6 +182,7 @@
   }
 </script>
 <style lang="less">
+
   .sidebar-hidden {
     .header {
       .logo {
@@ -159,6 +194,14 @@
         }
         width: 64px;
       }
+
+    }
+    .aside{
+      .sidebar-toggle{
+        .icon-left{
+          transform: rotate(180deg);
+        }
+      }
     }
     .main {
       .app-body {
@@ -166,6 +209,28 @@
       }
     }
   }
+  .sidebar-close{
+    .header {
+      .logo {
+        width: 0;
+        overflow: hidden;
+      }
+    }
+    .aside{
+     margin-left: -230px;
+    }
+    .main {
+      .app-body {
+        margin-left: 0;
+      }
+    }
+  }
+  .sidebar-hidden.sidebar-close{
+    .aside{
+      margin-left: -64px;
+    }
+  }
+
 
   .main {
     display: flex;
@@ -179,9 +244,32 @@
     .aside {
       position: fixed;
       margin-top: 50px;
-      min-height: calc(~'100vh - 50px');
       z-index: 10;
       background-color: #222d32;
+      transition: all 0.3s ease-in-out;
+      .menu{
+        overflow-y: auto;
+        height: calc(~'100vh - 100px');
+      }
+      .sidebar-toggle{
+        position: relative;
+        width: 100%;
+        height: 50px;
+        background-color: #367fa9;
+        color: #fff;
+        cursor: pointer;
+        .icon-left{
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          right: 0;
+          width: 64px;
+          height: 100%;
+          font-size: 20px;
+          transition: all 0.3s ease-in-out;
+        }
+      }
     }
     .app-body {
       margin-left: 230px;
@@ -213,7 +301,7 @@
       color: #fff;
       background-color: #367fa9;
       -webkit-transition: width 0.35s;
-      transition: width 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
     .right {
       position: absolute;
@@ -245,6 +333,7 @@
         background-color: #367fa9
       }
     }
+
   }
 
   .menu {
@@ -253,5 +342,9 @@
 
   .el-menu--vertical {
     min-width: 190px;
+  }
+  .setting-category{
+    padding:10px 0;
+    border-bottom: 1px solid #eee;
   }
 </style>

@@ -63,6 +63,8 @@
   .nav-bar {
     margin-top: 50px;
     height: 38px;
+    width: 100%;
+    z-index: 10;
     background: #fff;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04);
 
