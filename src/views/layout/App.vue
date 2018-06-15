@@ -131,7 +131,7 @@
       },
       saveSwitchTabBarVal(v) {
         let containerDom = document.getElementById('mainContainer');
-        v ? containerDom.style.minHeight = 'calc(100vh - 135px)' : containerDom.style.minHeight = 'calc(100vh - 97px)';
+        v ? containerDom.style.minHeight = 'calc(100vh - 139px)' : containerDom.style.minHeight = 'calc(100vh - 101px)';
         v ? localStorage.setItem('switchTabBar', v) : localStorage.removeItem('switchTabBar');
       },
       sidebarToggle(e) {
@@ -166,6 +166,8 @@
 
       this.switchTabBar = localStorage.getItem('switchTabBar') ? true : false;
       this.fixedTabBar = localStorage.getItem('fixedTabBar') ? true : false;
+      if(this.switchTabBar)document.getElementById('mainContainer').style.minHeight = 'calc(100vh - 139px)';
+
 
 
       if (!this.isCollapse) {
@@ -279,7 +281,7 @@
     .main-container {
       //margin-top: 50px;
       padding: 2px;
-      min-height: calc(~'100vh - 97px');
+      min-height: calc(~'100vh - 101px');
     }
   }
 

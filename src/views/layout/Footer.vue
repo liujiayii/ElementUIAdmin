@@ -20,7 +20,9 @@
     width: 100%;
     font-size: 14px;
     background: #fff;
-    padding: 12px;
+    line-height: 50px;
+    padding: 0 12px;
+    height: 50px;
     color: #444;
     border-top: 1px solid #d2d6de;
     .version {
