@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Personal from './personal'
 
 Vue.use(Router)
 
@@ -58,7 +59,9 @@ export default new Router({
             keepAlive: true
           },
           component: resolve => require(['~/views/userManage/Index.vue'], resolve),
-        }
+        },
+          //个人中心，可能有修改密码，头像修改等路由
+        Personal.index,
       ]
     },
     {

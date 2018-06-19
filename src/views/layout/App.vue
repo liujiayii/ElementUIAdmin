@@ -57,8 +57,8 @@
               Admin<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>个人中心</el-dropdown-item>
-            <el-dropdown-item @click.native="logout">退出系统</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push('/personal')"><i style="padding-right: 8px" class="fa fa-cog"></i>个人中心</el-dropdown-item>
+            <el-dropdown-item @click.native="logout"><i style="padding-right: 8px" class="fa fa-key"></i>退出系统</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -280,7 +280,7 @@
     }
     .main-container {
       //margin-top: 50px;
-      padding: 2px;
+      padding: 6px;
       min-height: calc(~'100vh - 101px');
     }
   }

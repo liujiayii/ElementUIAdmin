@@ -6,6 +6,6 @@ const url = __DEV__ ? devUrl : proUrl
 export default {
   apiUrl : url.apiUrl,
   apiPrefix : "api",
-  gitHub : ''
+  gitHub : 'https://github.com/xusenlin/ElementUIAdmin'
 }
 

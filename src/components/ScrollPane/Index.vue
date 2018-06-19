@@ -20,7 +20,7 @@
         },
         methods: {
             handleScroll(e) {
-                console.log(e.wheelDelta +'---'+ -e.deltaY);
+                // console.log(e.wheelDelta +'---'+ -e.deltaY);
                 const eventDelta = e.wheelDelta || -e.deltaY * 3
                 const $container = this.$refs.scrollContainer
                 const $containerWidth = $container.offsetWidth
