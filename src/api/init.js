@@ -17,6 +17,7 @@ function isFunction(fn) {
 function buildServerApiRequest(params, url, type, callback) {
   setToken();
   if ('get' == type) {
+	  params={params:params}
     //做一些加载的小动画挺好
   }
   let apiUrl = buildApiUrl(url);
@@ -24,10 +25,8 @@ function buildServerApiRequest(params, url, type, callback) {
 
   if (isFunction(callback)) {//没有回调则返回es6 promise
     result.then(r => {
-      if(__DEV__)
-        console.log(e);
+		r = r.data;
       //这里可以根据后台数据进一步做一些过滤或者报错之类的
-      //比如没有权限操作，弹出提示清除token并跳转登录页面
       callback(r);
     }).catch(e => {
       if(__DEV__)
