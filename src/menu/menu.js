@@ -73,10 +73,21 @@ UserManage.user = {
   name: '用户列表',
   path: '/user_manage',
 };
-UserManage.user_admin = {
-  name: '管理员列表',
-  path: '/',
+
+
+
+menu.category_manage = {
+  name: '分类管理',
+  icon: 'fa fa-sitemap',
+  children: {}
 };
+let CategoryManage = menu.category_manage.children;
+
+CategoryManage.category = {
+  name: '分类列表',
+  path: '/category_manage',
+};
+
 
 
 export default menu;

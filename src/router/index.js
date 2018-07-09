@@ -60,8 +60,18 @@ export default new Router({
           },
           component: resolve => require(['~/views/userManage/Index.vue'], resolve),
         },
+        {
+          path: '/category_manage',
+          name: 'category_manage',
+          meta: {
+            title: '分类列表',
+            keepAlive: true
+          },
+          component: resolve => require(['~/views/categoryManage/Index.vue'], resolve),
+        },
           //个人中心，可能有修改密码，头像修改等路由
         Personal.index,
+
       ]
     },
     {
