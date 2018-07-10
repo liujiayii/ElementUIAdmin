@@ -9,6 +9,10 @@
         <i class="el-icon-menu"></i>
       </span>
       <div class="right">
+        <span class="header-btn" @click="screenfullToggle">
+            <i class="fa fa-arrows-alt"></i>
+        </span>
+
         <el-dropdown>
           <span class="header-btn">
                <i class="el-icon-setting"></i>
@@ -113,6 +117,7 @@
 </template>
 
 <script>
+  import Screenfull from 'screenfull'
   import EuiFooter from '~/views/layout/Footer.vue';
   import NavBar from './NavBar.vue'
   import Menu from '~/menu/index';
@@ -128,6 +133,16 @@
       };
     },
     methods: {
+      screenfullToggle(){
+        if (!Screenfull.enabled) {
+          this.$message({
+            message: '你的浏览器不支持全屏！',
+            type: 'warning'
+          })
+          return false
+        }
+        Screenfull.toggle();
+      },
       saveFixedTabBar(v){
         v ? localStorage.setItem('fixedTabBar', v) : localStorage.removeItem('fixedTabBar');
       },
