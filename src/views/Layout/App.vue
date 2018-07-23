@@ -103,7 +103,7 @@
         </div>
       </div>
       <div class="app-body">
-        <NavBar v-if="switchTabBar" :style="fixedTabBar && switchTabBar?'position: fixed;top: 0;':''"></NavBar>
+        <NavBar id="nav-bar" v-if="switchTabBar" :style="fixedTabBar && switchTabBar?'position: fixed;top: 0;':''"></NavBar>
         <div v-else style="margin-top: 50px;"></div>
         <div id="mainContainer" :style="fixedTabBar && switchTabBar?'margin-top: 88px;':''" class="main-container">
           <!--<transition name="fade">-->
@@ -133,6 +133,16 @@
       };
     },
     methods: {
+      NavBarWidth(){
+        let navBar = document.getElementById('nav-bar');
+        if(!navBar)return;
+        if(!(this.fixedTabBar && this.switchTabBar)){navBar.style.width = '100%';return;}
+        let sidebarClose =  document.body.classList.contains('sidebar-close')
+        if(sidebarClose) {navBar.style.width = '100%';return;}
+        if(this.isCollapse) navBar.style.width = 'calc(100% - 64px)';
+        else navBar.style.width = 'calc(100% - 230px)';
+
+      },
       screenfullToggle(){
         if (!Screenfull.enabled) {
           this.$message({
@@ -145,11 +155,13 @@
       },
       saveFixedTabBar(v){
         v ? localStorage.setItem('fixedTabBar', v) : localStorage.removeItem('fixedTabBar');
+        this.NavBarWidth();
       },
       saveSwitchTabBarVal(v) {
         let containerDom = document.getElementById('mainContainer');
         v ? containerDom.style.minHeight = 'calc(100vh - 139px)' : containerDom.style.minHeight = 'calc(100vh - 101px)';
         v ? localStorage.setItem('switchTabBar', v) : localStorage.removeItem('switchTabBar');
+        this.NavBarWidth();
       },
       sidebarToggle(e) {
         e.preventDefault();
@@ -161,12 +173,13 @@
           document.body.classList.add('sidebar-hidden')
           this.isCollapse = true;
         }
-
+        this.NavBarWidth();
 
       },
       hiddenSidebar(e) {
         e.preventDefault();
-        document.body.classList.toggle('sidebar-close')
+        document.body.classList.toggle('sidebar-close');
+        this.NavBarWidth();
       },
       logout() {
         sessionStorage.removeItem(this.$Config.tokenKey);
@@ -194,6 +207,8 @@
       } else {
         document.body.classList.add('sidebar-hidden')
       }
+
+      setTimeout(()=>{this.NavBarWidth();},1000)
     },
     components: {
       EuiFooter, NavBar
