@@ -50,10 +50,11 @@
       </el-table-column>
       <el-table-column
               label="操作"
-              width="100">
+              :render-header="tableAction"
+              width="120">
         <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-          <el-button type="text" size="small">编辑</el-button>
+          <el-button @click="handleClick(scope.row)" type="info" icon="el-icon-info" size="small" circle></el-button>
+          <el-button @click="handleClick(scope.row)" type="primary" icon="el-icon-edit" size="small" circle></el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -62,6 +63,7 @@
 
 <script>
   import ToolBar from '~/components/ToolBar/ToolBar.vue';
+  import HelpHint from '~/components/HelpHint/HelpHint.vue';
   export default {
     data() {
       return {
@@ -152,10 +154,17 @@
           callback: action => {
           }
         });
-      }
+      },
+      tableAction(){
+        return this.$createElement('HelpHint',{
+          props:{
+            content:'查看文章 / 编辑文章'
+          }
+        },'操作');
+      },
     },
     components: {
-        ToolBar
+        ToolBar,HelpHint
     }
   }
 </script>

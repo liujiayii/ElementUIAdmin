@@ -48,15 +48,6 @@ ContentManage.post = {
   name: '文章管理',
   path: '/post_manage',
 };
-// ContentManage.category = {
-//   name: '分类管理',
-//   path: '/category_manage',
-// };
-// ContentManage.message = {
-//   name: '留言管理',
-//   path: '/message_manage',
-// };
-
 
 /**
  * 用户管理
@@ -75,7 +66,10 @@ UserManage.user = {
 };
 
 
-
+/**
+ * 分类管理
+ * @type {{name: string, icon: string, children: {}}}
+ */
 menu.category_manage = {
   name: '分类管理',
   icon: 'fa fa-sitemap',
@@ -89,5 +83,22 @@ CategoryManage.category = {
 };
 
 
+
+menu.permission_manage = {
+  name: '权限管理',
+  icon: 'fa fa-qrcode',
+  children: {}
+};
+let PermissionManage = menu.permission_manage.children;
+
+PermissionManage.role = {
+  name: '角色管理',
+  path: '/role_manage',
+};
+
+PermissionManage.permission = {
+  name: '权限列表',
+  path: '/permission_list',
+};
 
 export default menu;

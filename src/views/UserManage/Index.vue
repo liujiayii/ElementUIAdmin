@@ -60,7 +60,7 @@
       <el-table-column
           label="操作"
           :render-header="tableAction"
-          width="200">
+          width="180">
         <template slot-scope="scope">
             <el-button @click="resetting(scope.row.id)" type="warning" style="transition: .4s;"  :ref="scope.row.id"  icon="el-icon-refresh" size="small" circle></el-button>
             <el-button @click="editUser(scope.row)" type="primary" icon="el-icon-edit" size="small" circle></el-button>

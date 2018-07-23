@@ -118,7 +118,7 @@
 
 <script>
   import Screenfull from 'screenfull'
-  import EuiFooter from '~/views/layout/Footer.vue';
+  import EuiFooter from '~/views/Layout/Footer.vue';
   import NavBar from './NavBar.vue'
   import Menu from '~/menu/index';
 
