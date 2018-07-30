@@ -59,13 +59,13 @@ npm run build
 	|       |-- Home                     // 后台主页
 	|       |-- DevelopmentTool          // 这个目录比较重要，建议不要去修改，这里正在开发，配合go语言会做一个自动生成代码的工具，里面有一些模板等。
 	|       |-- xxxx                     // 不一一介绍了，自己看吧
-		|   |-- App.vue                      // 页面入口文件
+	|   |-- App.vue                      // 页面入口文件
 	|   |-- index.html                   // index.html模板
-		|   |-- main.js                      // 程序入口文件，加载各种公共组件
-		|-- .babelrc                         // ES6语法编译配置
-		|-- .gitignore                       // 忽略的文件
-		|-- package.json                     // 项目及工具的依赖配置文件
-		|-- README.md                        // 说明
+	|   |-- main.js                      // 程序入口文件，加载各种公共组件
+	|-- .babelrc                         // ES6语法编译配置
+	|-- .gitignore                       // 忽略的文件
+	|-- package.json                     // 项目及工具的依赖配置文件
+	|-- README.md                        // 说明
 
 
 
