@@ -38,7 +38,9 @@ a {
 .el-menu .fa:not(.is-children) {
     font-size: 14px;
 }
-
+.gray-mode{
+    filter: grayscale(100%);
+}
 
 
 .fade-enter-active, .fade-leave-active {

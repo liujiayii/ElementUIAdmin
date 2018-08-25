@@ -42,7 +42,19 @@
                     show-icon>
                 </el-alert>
               </div>
-
+              <div class="setting-category" style="display: flex;height: 80px;align-items: center">
+                <div style="width: 80px">
+                  <el-button  type="primary" icon="el-icon-sort" circle @click="ToggleGrayMode" style="transform: rotate(90deg)"></el-button>
+                </div>
+                <div style="flex: 1;margin-top: -8px">
+                  <el-alert
+                          style="margin-top: 10px"
+                          title="切换灰度模式!"
+                          type="info"
+                          show-icon>
+                  </el-alert>
+                </div>
+              </div>
               <!--<div class="setting-category">-->
                 <!--下个设置块-->
               <!--</div>-->
@@ -142,6 +154,9 @@
         if(this.isCollapse) navBar.style.width = 'calc(100% - 64px)';
         else navBar.style.width = 'calc(100% - 230px)';
 
+      },
+      ToggleGrayMode(){
+        document.body.classList.toggle("gray-mode")
       },
       screenfullToggle(){
         if (!Screenfull.enabled) {
