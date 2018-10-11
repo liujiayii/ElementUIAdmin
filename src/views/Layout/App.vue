@@ -3,7 +3,9 @@
     <div class="header">
       <div class="logo">
         <span class="big">{{ $Config.siteName }}</span>
-        <span class="min">{{ $Config.minSiteMame }}</span>
+        <span class="min">
+          <img width="40" style="margin-top: 5px" src="../../assets/images/logo.svg" alt="">
+        </span>
       </div>
       <span class="header-btn" @click="hiddenSidebar">
         <i class="el-icon-menu"></i>
@@ -235,6 +237,7 @@
   .sidebar-hidden {
     .header {
       .logo {
+        background: #222d32;
         .big {
           display: none;
         }
