@@ -1,3 +1,7 @@
+#新版本已经使用了最新的vue-cli3重构
+https://github.com/xusenlin/ElementUIAdmin/blob/master/README.md
+
+
 # Element UI Admin
 
 > 一个干净优雅的Element UI Admin模板
