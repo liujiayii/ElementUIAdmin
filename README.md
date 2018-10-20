@@ -1,5 +1,5 @@
 #新版本已经使用了最新的vue-cli3重构
-https://github.com/xusenlin/ElementUIAdmin/blob/master/README.md
+https://github.com/xusenlin/ElementUIAdmin2
 
 
 # Element UI Admin
